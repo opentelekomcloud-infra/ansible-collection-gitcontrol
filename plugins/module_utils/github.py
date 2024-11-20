@@ -225,10 +225,10 @@ class GitHubBase(GitBase):
 
             error_data["response"] = response or "no response"
             error_data["response_body"] = body or "no body"
-            error_data["request_url"] =  url
-            error_data["request_method"] =  method
+            error_data["request_url"] = url
+            error_data["request_method"] = method
             if 'json' in kwargs:
-                error_data["request_body"] =  kwargs['json'] or 'no body'
+                error_data["request_body"] = kwargs['json'] or 'no body'
 
             self.save_error(f"request failed {error_msg}: {error_data}")
         elif status == 404 and ignore_missing:
@@ -1138,7 +1138,6 @@ class GitHubBase(GitBase):
         # Therefore we remove this option in that case.
         if current_repo['size'] == 0:
             del kwargs['default_branch']
-
 
         if not current_repo:
             changed = True
