@@ -1138,6 +1138,7 @@ class GitHubBase(GitBase):
         # Therefore we remove this option in that case.
         if current_repo['size'] == 0:
             del kwargs['default_branch']
+            self.ansible.warn(f"Repo {repo_name} does not yet have any branches or commits, cannot set the default branch")
 
         if not current_repo:
             changed = True
